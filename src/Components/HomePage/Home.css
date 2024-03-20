@@ -1,0 +1,14 @@
+.home{
+    display: flex;
+    position: relative;
+    background-size: cover;
+}
+
+.login{
+    background-color: rgba(255, 255, 255, 0.858);
+    width: 120vh;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    border-top-left-radius: 100vh;
+}
