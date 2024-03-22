@@ -1,5 +1,6 @@
 * {
     font-family: 'Garamond';
+    overflow-x: hidden;
 }
 
 .poster {
@@ -9,13 +10,13 @@
 
 .row {
     display: grid;
-    grid-template-columns: repeat(42, minmax(180px, 1fr));
+    grid-template-columns: repeat(63, minmax(180px, 1fr));
     grid-auto-columns: 300vw;
     overflow: hidden;
     row-gap: 5px;
     column-gap: 5px;
     scroll-behavior: smooth;
-    padding: 120px;
+    padding-left: 120px;
 }
 
 .background {
