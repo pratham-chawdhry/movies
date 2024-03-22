@@ -1,14 +1,55 @@
+*{
+    font-family: "Garamond";
+}
+
 .home{
+    border-bottom-right-radius: 100px;
     display: flex;
     position: relative;
     background-size: cover;
 }
 
 .login{
-    background-color: rgba(255, 255, 255, 0.858);
-    width: 120vh;
+    background-color: rgba(221, 221, 221, 0.858);
+    width: 35vw;
     height: 100vh;
     position: absolute;
     right: 0;
-    border-top-left-radius: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap : 20px;
+}
+
+.details{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap : 20px;
+}
+
+.label-design{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    height: 30px;
+}
+
+.input-design{
+    border-radius: 5px;
+    height: 28px;
+    width: 200px;
+    border: none;
+}
+
+.inner-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap : 20px;
 }
