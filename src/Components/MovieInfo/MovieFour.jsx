@@ -53,16 +53,6 @@ export default function MovieFour({genreId, genre, movieArray}) {
   return (
     <div>
         <h1 className = 'genre-title' style = {{color : 'white'}}>{genre}</h1>
-    {/* <div className='row ' ref = {containerRef}>
-      {
-        !loading && genreArray &&
-            genreArray.map(({poster_path}, index) => {
-                return (<div key = {index} className='poster-div' style = {{width : '190px'}}>
-                  <img className='poster' src = {`https://image.tmdb.org/t/p/original${poster_path}?api_key=294c3bed71b4dc93880885f944b67ed6`}/>
-                </div>)
-            })
-          }
-    </div> */}
       {
         finish && (sizeOfSmall !== 0 || numOfLarge !== 0)  &&
         renderArray.map((num, index) => {
@@ -70,20 +60,8 @@ export default function MovieFour({genreId, genre, movieArray}) {
           end = start + num
           const array = genreArray.slice(start, end)
           return (<MovieFive key = {index} array = {array}/>)
-          // return (
-          //   <div key = {index} className='row ' ref = {containerRef}>
-          //     {
-          //       genreArray.slice(start, end).map(({poster_path}, index) => {
-          //         return (<div key = {index} className='poster-div' style = {{width : '190px'}}>
-          //           <img className='poster' src = {`https://image.tmdb.org/t/p/original${poster_path}?api_key=294c3bed71b4dc93880885f944b67ed6`}/>
-          //         </div>)
-          //       })
-          //     }
-          //   </div>
-          // )
         }) 
       }
-      {/* <button id = "slide" onClick = {(e) => handleScroll(e)}>Slide</button> */}
     </div>
   )
 }

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import './Movie.css'
 import MovieTwo from '../MovieInfo/MovieTwo'
+import Menu from '../MovieInfo/Menu'
 
 export default function MovieOne() {
   const [loading, setLoading] = useState(true)
@@ -25,6 +26,7 @@ export default function MovieOne() {
   return (
     <div className='background'>
         {loading ? <h1>Loading...</h1> : <MovieTwo totalPages = {totalPages}/>}
+        <Menu/>
     </div>
   )
 }

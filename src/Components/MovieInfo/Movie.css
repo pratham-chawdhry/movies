@@ -5,6 +5,7 @@
 
 .poster {
     width: 180px;
+    height : 270px;
     border-radius: 5px;
 }
 
@@ -13,8 +14,8 @@
     grid-template-columns: repeat(63, minmax(180px, 1fr));
     grid-auto-columns: 300vw;
     overflow: hidden;
+    column-gap: 8px;
     row-gap: 5px;
-    column-gap: 5px;
     scroll-behavior: smooth;
     padding-left: 120px;
 }
@@ -24,14 +25,37 @@
     min-height: 100vh; /* Ensure background covers entire viewport height */
     width: 100vw;
     overflow: hidden; /* Ensure the background doesn't overflow */
+    overflow-y: scroll;
 }
 
 .poster-div {
     display: flex;
     width: 180px;
+    height : 297px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: visible;
 }
 
 .poster-div:hover {
     cursor: pointer;
     transform: scale(1.1);
+}
+
+.button{
+    background-color: black;
+    opacity: 0;
+    border: none;
+    color: white;
+    height: 270px;
+    border-radius: 3px;
+    overflow: hidden;
+    font-size: 30px;
+}
+
+.button:hover{
+    opacity: 0.6;
+    font-size: 30px;
+    overflow: hidden;
 }
