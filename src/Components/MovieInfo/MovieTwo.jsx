@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MovieThree from "./MovieThree"
+import './Movie.css'
 
 export default function MovieTwo({ totalPages }) {
     const [data, setData] = useState([]);
@@ -34,8 +35,8 @@ export default function MovieTwo({ totalPages }) {
                 data.forEach((item) => {
                     const { results } = item;
                     results.forEach((movie) => {
-                        const {poster_path, backdrop_path} = movie;
-                        if (poster_path && backdrop_path) {
+                        const {poster_path, backdrop_path, popularity} = movie;
+                        if (poster_path && backdrop_path && popularity > 0) {
                             array.push(movie);
                         }
                     })
@@ -47,7 +48,7 @@ export default function MovieTwo({ totalPages }) {
     }, [loading, data]);
 
     return (
-        <div>
+        <div className = "container">
             {finish && <MovieThree movieArray = {movieArray}/>}
         </div>
     );

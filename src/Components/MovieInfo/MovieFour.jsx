@@ -43,16 +43,10 @@ export default function MovieFour({genreId, genre, movieArray}) {
       }
     }, [loading])
 
-    const handleScroll = (e) => {
-        const newScrollPosition = scroll + 7*185;
-        setScroll(newScrollPosition);
-        containerRef.current.scrollLeft = newScrollPosition;
-    }
-
     console.log(genreArray.length, genre, numOfLarge, sizeOfSmall)
   return (
     <div>
-        <h1 className = 'genre-title' style = {{color : 'white'}}>{genre}</h1>
+      {finish && <h1 className = 'genre-title' style = {{color : 'white'}}>{genre}</h1>}
       {
         finish && (sizeOfSmall !== 0 || numOfLarge !== 0)  &&
         renderArray.map((num, index) => {

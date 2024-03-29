@@ -1,39 +1,51 @@
 import React from 'react'
 import './Movie.css'
 import { useRef, useState } from 'react'
+import MovieSix from './MovieSix'
 
 export default function MovieFive({array}) {
     const containerRef = useRef()
     const [scroll, setScroll] = useState(0)
+    const [hover, setHover] = useState(-1)
 
     const scrollHandler = () => {
-        console.log(scroll)
-        const newScrollPosition = scroll + 7*188;
+        let newScrollPosition = 0;
+        if (scroll + 6*187 >= array.length * 187 - 6*187) {
+            newScrollPosition = scroll + 6 * 187 
+        }
+        else{
+            newScrollPosition = scroll + 6*187;
+        }
         setScroll(newScrollPosition);
         containerRef.current.scrollLeft = newScrollPosition;
     }
 
-    let value = array.length * 188 - 7*188
-    console.log("value,",value)
+    const scrollHandlerNew = () => {
+        const newScrollPosition = scroll - 6*187;
+        setScroll(newScrollPosition);
+        containerRef.current.scrollLeft = newScrollPosition;
+    }
+
+    let value = array.length * 187- 6*187
+
 
   return (
-    <div style = {{position: 'relative', height: '297px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-        { scroll < value && (<button className='button' onClick={scrollHandler}  style={{position: 'absolute', zIndex: '2', width: '108px', marginLeft: '94vw'}}>
-            <i style={{color: 'white'}} className="fa-solid fa-right-long"></i> {/* Right Arrow not working*/}
+    <div style = {{position: 'relative', height: '400px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        { scroll > 0 && (<button className='button' onClick={scrollHandlerNew}  style={{backgroundImage: 'linear-gradient(270deg, rgba(0,0,0,0.5), rgba(0, 0, 0, 1))', position: 'absolute', zIndex: '5', width: '70px', marginTop : '-5px', left : '0', height: '400px'}}>
+            <i style={{color: 'white'}} className="fa-solid fa-left-long"></i>
         </button>)}
-        <div className='row' ref = {containerRef} style={{position: 'absolute', zIndex: '1', scrollBehavior: 'smooth', gridTemplateColumns: `repeat(${array.length + 1}, minmax(180px, 1fr))`, top: '0px', left: '0px', right: '0px', bottom: '0px'}}>
+        { scroll < value && (<button className='button' onClick={scrollHandler}  style={{position: 'absolute', top : '0', zIndex: '4', width: '80px', marginLeft: '61.4vw', marginTop : '-5px', height: '400px'}}>
+            <i style={{color: 'white'}} className="fa-solid fa-right-long"></i> 
+        </button>)}
+        <div className='row' ref = {containerRef} style={{ scrollBehavior: 'smooth', gridTemplateColumns: `repeat(${array.length + 2}, minmax(179px, 240px)`, top: '0px', left: '0px', right: '0px', bottom: '0px', height: '400px'}}>
             {
-                array.map(({poster_path}, index) => {
+                array.map((movie, index) => {
                     return (
-                        <div className='poster-div' key = {index}>
-                            <img className='poster' src = {`https://image.tmdb.org/t/p/original${poster_path}?api_key=294c3bed71b4dc93880885f944b67ed6`}/>
-                        </div>
+                        <MovieSix key = {index} movie = {movie}/>
                     )
                 })
             }
         </div>
-    {/* <div onClick={(e) => console.log("Div button ka")} style={{ width: '180px', height: '270px', zIndex: '1' }}> */}
-            {/* </div> */}
     </div>
   )
 }

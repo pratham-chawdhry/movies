@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './Movie.css'
 import MovieTwo from '../MovieInfo/MovieTwo'
 import Menu from '../MovieInfo/Menu'
+import pinkSunset from '../../Images/GenreIcons/pink-beach.jpg'
 
 export default function MovieOne() {
   const [loading, setLoading] = useState(true)
@@ -23,10 +24,11 @@ export default function MovieOne() {
     setLoading(false)
   }, [data])
 
+  // backgroundImage: `url(${pinkSunset})`, backgroundSize : 'cover', 
   return (
-    <div className='background'>
+    <div className='background' style = {{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', flexDirection: 'row'}}>
+        <Menu />
         {loading ? <h1>Loading...</h1> : <MovieTwo totalPages = {totalPages}/>}
-        <Menu/>
     </div>
   )
 }

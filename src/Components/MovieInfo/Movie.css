@@ -1,61 +1,96 @@
 * {
-    font-family: 'Garamond';
-    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
 }
 
 .poster {
-    width: 180px;
-    height : 270px;
+    width: 170px;
+    height : 255px;
     border-radius: 5px;
+}
+.poster:hover{
+    cursor: pointer;
+    transform: scale(1.03);
 }
 
 .row {
     display: grid;
-    grid-template-columns: repeat(63, minmax(180px, 1fr));
     grid-auto-columns: 300vw;
     overflow: hidden;
     column-gap: 8px;
     row-gap: 5px;
     scroll-behavior: smooth;
-    padding-left: 120px;
+    padding-left: 78px;
+    margin-bottom: 5px;
 }
 
 .background {
-    background-image: linear-gradient(60deg, black, #292b2c, black);
+    background-image: linear-gradient(160deg,#222831, #010102);
     min-height: 100vh; /* Ensure background covers entire viewport height */
     width: 100vw;
     overflow: hidden; /* Ensure the background doesn't overflow */
-    overflow-y: scroll;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.background::-webkit-scrollbar {
+    width : 0;
+    display: none;
 }
 
 .poster-div {
     display: flex;
-    width: 180px;
-    height : 297px;
+    height : 270px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     overflow: visible;
+    border-radius: 5px;
 }
 
-.poster-div:hover {
+.poster-div:hover{
     cursor: pointer;
-    transform: scale(1.1);
 }
 
 .button{
-    background-color: black;
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1));
     opacity: 0;
     border: none;
     color: white;
-    height: 270px;
+    height: 255px;
     border-radius: 3px;
     overflow: hidden;
-    font-size: 30px;
+    font-size: 50px;
 }
 
 .button:hover{
     opacity: 0.6;
-    font-size: 30px;
+    font-size: 50px;
     overflow: hidden;
+}
+
+.genre{
+    width : 55px;
+    border-radius: 5px;
+}
+
+.container::-webkit-scrollbar {
+    width : 0;
+    display: none;
+}
+
+.menu{
+    opacity: 1;
+}
+
+.genre-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movieDiv{
+    background-image: linear-gradient(90deg, rgba(250, 250, 250, 0.05), rgba(255, 255, 255, 0.05));
+    border-radius: 7px;
 }
