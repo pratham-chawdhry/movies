@@ -1,17 +1,37 @@
 {
   "files": {
-    "main.css": "/movies/static/css/main.99e52cc6.css",
-    "main.js": "/movies/static/js/main.32c0fe94.js",
+    "main.css": "/movies/static/css/main.9d6085b8.css",
+    "main.js": "/movies/static/js/main.f641ae00.js",
     "static/js/453.7bf11acd.chunk.js": "/movies/static/js/453.7bf11acd.chunk.js",
     "static/media/background.jpg": "/movies/static/media/background.24ed5e206f281b3e3dca.jpg",
+    "static/media/music.png": "/movies/static/media/music.e537b1e006bd115ab895.png",
+    "static/media/horror.png": "/movies/static/media/horror.a8f8f6ee3022c3590a5b.png",
+    "static/media/adventure.png": "/movies/static/media/adventure.faa75995b70987e47415.png",
+    "static/media/thriller.png": "/movies/static/media/thriller.12ae8dd1172fa8cc05f8.png",
+    "static/media/animation.png": "/movies/static/media/animation.727c57bf92fbd3abf17a.png",
+    "static/media/mystery.png": "/movies/static/media/mystery.dba8f45f5072ee990806.png",
+    "static/media/crime.png": "/movies/static/media/crime.39aa212548a410c7312f.png",
+    "static/media/drama.png": "/movies/static/media/drama.f962a04c6f5582e5111f.png",
+    "static/media/tv-movie.png": "/movies/static/media/tv-movie.132e034e746deb27f3e7.png",
+    "static/media/action.png": "/movies/static/media/action.a39ccdc37c55a6995e01.png",
+    "static/media/war.png": "/movies/static/media/war.acbd1339a3bb0907aa2e.png",
+    "static/media/fantasy.png": "/movies/static/media/fantasy.9c938247c9eea4132b8d.png",
+    "static/media/western.png": "/movies/static/media/western.e73010cc8ce3fa786028.png",
+    "static/media/science-fiction.png": "/movies/static/media/science-fiction.3a51097450282068977a.png",
+    "static/media/family.png": "/movies/static/media/family.81375965ee00cce4ec7f.png",
+    "static/media/comedy.png": "/movies/static/media/comedy.457134efd91b0d0ee753.png",
+    "static/media/documentary.png": "/movies/static/media/documentary.4116a36d217ee60c6f94.png",
+    "static/media/romance.png": "/movies/static/media/romance.0385f5ec85a6148afddd.png",
+    "static/media/history.png": "/movies/static/media/history.b9b594c69670a7cb9928.png",
+    "static/media/pink-beach.jpg": "/movies/static/media/pink-beach.f7e6b57ebbcf7f9a8fee.jpg",
     "static/media/logo.svg": "/movies/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/movies/index.html",
-    "main.99e52cc6.css.map": "/movies/static/css/main.99e52cc6.css.map",
-    "main.32c0fe94.js.map": "/movies/static/js/main.32c0fe94.js.map",
+    "main.9d6085b8.css.map": "/movies/static/css/main.9d6085b8.css.map",
+    "main.f641ae00.js.map": "/movies/static/js/main.f641ae00.js.map",
     "453.7bf11acd.chunk.js.map": "/movies/static/js/453.7bf11acd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.99e52cc6.css",
-    "static/js/main.32c0fe94.js"
+    "static/css/main.9d6085b8.css",
+    "static/js/main.f641ae00.js"
   ]
 }
