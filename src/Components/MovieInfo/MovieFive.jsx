@@ -11,7 +11,11 @@ export default function MovieFive({array}) {
     const scrollHandler = () => {
         let newScrollPosition = 0;
         if (scroll + 6*187 >= array.length * 187 - 6*187) {
-            newScrollPosition = scroll + 6 * 187 
+            let newValue = array.length % 6;
+            if (newValue === 0) {
+                newValue = 6
+            }
+            newScrollPosition = scroll + newValue * 187 
         }
         else{
             newScrollPosition = scroll + 6*187;

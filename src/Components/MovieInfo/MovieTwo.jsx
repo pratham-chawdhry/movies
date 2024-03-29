@@ -35,8 +35,8 @@ export default function MovieTwo({ totalPages }) {
                 data.forEach((item) => {
                     const { results } = item;
                     results.forEach((movie) => {
-                        const {poster_path, backdrop_path, popularity} = movie;
-                        if (poster_path && backdrop_path && popularity > 0) {
+                        const {poster_path, backdrop_path, popularity, overview} = movie;
+                        if (poster_path && backdrop_path && popularity > 0 && overview) {
                             array.push(movie);
                         }
                     })
