@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useRef } from 'react'
 import MovieFive from './MovieFive'
 
-export default function MovieFour({genreId, genre, movieArray}) {
+export default function MovieFour({genreId, genre, movieArray, setDisplay, setMovieObj, genreDisplay}) {
     const [loading, setLoading] = useState(true)
     const [genreArray, setGenreArray] = useState([])
     const [scroll, setScroll] = useState(0)
@@ -43,17 +43,17 @@ export default function MovieFour({genreId, genre, movieArray}) {
       }
     }, [loading])
 
-    console.log(genreArray.length, genre, numOfLarge, sizeOfSmall)
+    //console.log(genreArray.length, genre, numOfLarge, sizeOfSmall)
   return (
     <div>
-      {finish && <h1 className = 'genre-title' style = {{color : 'white'}}>{genre}</h1>}
+      {finish && ((genreArray.length) ? <h1 className = 'genre-title' style = {{color : 'white'}}>{genre}</h1> : <div></div>)}
       {
         finish && (sizeOfSmall !== 0 || numOfLarge !== 0)  &&
         renderArray.map((num, index) => {
           start = end
           end = start + num
           const array = genreArray.slice(start, end)
-          return (<MovieFive key = {index} array = {array}/>)
+          return (<MovieFive key = {index} array = {array} setDisplay = {setDisplay} setMovieObj = {setMovieObj}/>)
         }) 
       }
     </div>

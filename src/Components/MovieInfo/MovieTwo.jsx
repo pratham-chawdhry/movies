@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MovieThree from "./MovieThree"
 import './Movie.css'
 
-export default function MovieTwo({ totalPages }) {
+export default function MovieTwo({ totalPages, setDisplay, setMovieObj, query, setQuery, genreDisplay }) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [movieArray, setMovieArray] = useState([]);
@@ -12,9 +12,11 @@ export default function MovieTwo({ totalPages }) {
         const fetchData = async () => {
             try {
                 const responses = await Promise.all(
-                    Array.from({ length: totalPages }, (_, i) =>
-                        fetch(`https://api.themoviedb.org/3/search/movie?query=Rock&include_adult=false&language=en-US&page=${i + 1}&region=India&api_key=294c3bed71b4dc93880885f944b67ed6`)
-                    )
+                    Array.from({ length: totalPages }, async (_, i) => {
+                        const delay = 1000; // Exponential backoff
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        return fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=${i + 1}&region=India&api_key=294c3bed71b4dc93880885f944b67ed6`);
+                    })
                 );
                 const jsonData = await Promise.all(responses.map(response => response.json()));
                 setData(jsonData);
@@ -24,19 +26,21 @@ export default function MovieTwo({ totalPages }) {
                 setLoading(false);
             }
         };
-
-        fetchData();
-    }, [totalPages]);
+        
+        fetchData();        
+    }, [totalPages, query]);
 
     useEffect(() => {
-        if (!loading && data.length > 0) {
+        if (!loading && data.length > 0 && data) {
             setMovieArray(() => {
                 const array = [];
                 data.forEach((item) => {
                     const { results } = item;
-                    results.forEach((movie) => {
-                        const {poster_path, backdrop_path, popularity, overview} = movie;
-                        if (poster_path && backdrop_path && popularity > 0 && overview) {
+                    results && results.forEach((movie) => {
+                        const {poster_path, backdrop_path, popularity, overview, original_title, title, genre_ids} = movie;
+                        let originalTitle = original_title.toLowerCase();
+                        let Title = title.toLowerCase();
+                        if (poster_path && backdrop_path && popularity > 0 && overview ) {
                             array.push(movie);
                         }
                     })
@@ -45,11 +49,11 @@ export default function MovieTwo({ totalPages }) {
             });
             setFinish(true);
         }
-    }, [loading, data]);
+    }, [loading, data, query]);
 
     return (
         <div className = "container">
-            {finish && <MovieThree movieArray = {movieArray}/>}
+            {finish && <MovieThree movieArray = {movieArray} setDisplay = {setDisplay} setMovieObj = {setMovieObj} query = {query} genreDisplay = {genreDisplay}/>}
         </div>
     );
 }

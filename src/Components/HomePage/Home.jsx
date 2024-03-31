@@ -15,7 +15,7 @@ export default function Home() {
             <label className='label-design'>Password</label>
             <input className='input-design'></input>
         </div>
-        <Link to = "/AbhinavTheSkeleton/1">Abhinav</Link>
+        <Link to = "/search?query=Rocky">Abhinav</Link>
       </div>
     </div>
   )

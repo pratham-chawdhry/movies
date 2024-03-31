@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import HomePage from './Components/HomePage/Home';
-import MovieOne from './Components/MovieInfo/MovieOne';
+import MovieCentral from './Components/MovieInfo/MovieCentral';
 import MovieDetail from './Components/Movie/MovieDetailOne';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter basename = {"/movies"}>
       <Routes>
         <Route exact path = "/" element = {<HomePage />}/>
-        <Route path = "/AbhinavTheSkeleton/:id" element = {<MovieOne/>}/>
+        <Route path = "/search" element = {<MovieCentral/>}/>
         <Route path = "/movie/:id" element = {<MovieDetail/>}/>
       </Routes>
     </BrowserRouter>

@@ -5,7 +5,7 @@ import './Movie.css'
 import MovieFour from './MovieFour'
 import './Movie'
 
-export default function MovieThree({movieArray}) {
+export default function MovieThree({movieArray, setDisplay, setMovieObj, genreDisplay}) {
   const [loading, setLoading] = useState(true)
   const [newLoading, setNewLoading] = useState(true)
 
@@ -20,7 +20,7 @@ export default function MovieThree({movieArray}) {
   return (
     <div className='background'>
         {!newLoading && genres.map(({id, name}, index) => {
-                return (<MovieFour key = {index} genreId = {id} genre = {name} movieArray = {movieArray}/>)
+                return (genreDisplay.includes(name) && <MovieFour key = {index} genreId = {id} genre = {name} movieArray = {movieArray} setDisplay = {setDisplay} setMovieObj = {setMovieObj}/>)
             })
         }
     </div>
