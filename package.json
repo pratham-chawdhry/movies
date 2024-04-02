@@ -1,5 +1,4 @@
 {
-  "homepage": "http://pchaw.github.io/movies",
   "name": "movies",
   "version": "0.1.0",
   "private": true,
@@ -16,7 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run build",
+    "build": "CI='' npm run build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
@@ -42,5 +41,16 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "movies"
+  },
+  "keywords": [
+    "movies"
+  ],
+  "author": "pratham-chawdhry",
+  "license": "ISC"
 }
