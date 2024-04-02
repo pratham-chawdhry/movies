@@ -14,6 +14,7 @@ export default function MovieCentral() {
     const [rating, setRating] = useState(qString.has("rating") ? qString.get("rating") : 1)
     const [loading, setLoading] = useState(true)
     const [releaseDate, setReleaseDate] = useState(qString.has("release_date") ? qString.get("release_date") : "1500-01-01")
+    const [maxReleaseDate, setMaxReleaseDate] = useState(qString.has("max_release_date") ? qString.get("max_release_date") : new Date().toISOString().slice(0, 10))
 
     useEffect(() => {
       if (qString.has("genre")){
@@ -26,7 +27,7 @@ export default function MovieCentral() {
     }, [adultMovie])
   return (
     <div>
-        {!loading && <MovieOne query = {query} genreDisplay = {genreDisplay} setGenreDisplay = {setGenreDisplay} adultMovie = {adultMovie} setAdultMovie = {setAdultMovie} votes = {votes} setVotes = {setVotes} rating = {rating} setRating = {setRating} releaseDate = {releaseDate} setReleaseDate = {setReleaseDate}/>}
+        {!loading && <MovieOne query = {query} genreDisplay = {genreDisplay} setGenreDisplay = {setGenreDisplay} adultMovie = {adultMovie} setAdultMovie = {setAdultMovie} votes = {votes} setVotes = {setVotes} rating = {rating} setRating = {setRating} releaseDate = {releaseDate} setReleaseDate = {setReleaseDate} maxReleaseDate = {maxReleaseDate}/>}
     </div>
   )
 }

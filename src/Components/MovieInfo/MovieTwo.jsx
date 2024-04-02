@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MovieThree from "./MovieThree"
 import './Movie.css'
 
-export default function MovieTwo({ totalPages, setDisplay, setMovieObj, query, setQuery, genreDisplay, adultMovie, votes, rating, releaseDate }) {
+export default function MovieTwo({ totalPages, setDisplay, setMovieObj, query, setQuery, genreDisplay, adultMovie, votes, rating, releaseDate, maxReleaseDate }) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [movieArray, setMovieArray] = useState([]);
@@ -40,7 +40,7 @@ export default function MovieTwo({ totalPages, setDisplay, setMovieObj, query, s
                     results && results.forEach((movie) => {
                         const {poster_path, backdrop_path, popularity, overview, original_title, title, genre_ids, vote_count, vote_average, release_date} = movie;
                         const dateToCompare = new Date(releaseDate);
-                        if (poster_path && backdrop_path && popularity > 0 && overview && vote_average > rating && vote_count > votes && dateToCompare <= new Date(release_date)) {
+                        if (poster_path && backdrop_path && popularity > 0 && overview && vote_average > rating && vote_count > votes && dateToCompare <= new Date(release_date) && new Date(maxReleaseDate) >= new Date(release_date) ) {
                             array.push(movie);
                         }
                     })

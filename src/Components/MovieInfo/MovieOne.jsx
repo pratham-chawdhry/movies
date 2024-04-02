@@ -7,7 +7,7 @@ import pinkSunset from '../../Images/GenreIcons/pink-beach.jpg'
 import MovieWindow from './MovieWindow'
 import {useParams} from 'react-router-dom'
 
-export default function MovieOne({query, genreDisplay, setGenreDisplay, adultMovie, setAdultMovie, votes, setVotes, rating, setRating, releaseDate, setReleaseDate}) {
+export default function MovieOne({query, genreDisplay, setGenreDisplay, adultMovie, setAdultMovie, votes, setVotes, rating, setRating, releaseDate, setReleaseDate, maxReleaseDate}) {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const [totalPages, setTotalPages] = useState(1)
@@ -34,7 +34,7 @@ export default function MovieOne({query, genreDisplay, setGenreDisplay, adultMov
   return (
     <div className='background' style = {{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', flexDirection: 'row'}}>
         <Menu query = {query} genreDisplay = {genreDisplay} setGenreDisplay={setGenreDisplay}/>
-        {loading ? <h1>Loading...</h1> : <MovieTwo totalPages = {totalPages} setDisplay = {setDisplay} setMovieObj = {setMovieObj} query = {query} genreDisplay = {genreDisplay} adultMovie = {adultMovie} votes = {votes} rating = {rating} releaseDate = {releaseDate}/>}
+        {loading ? <h1>Loading...</h1> : <MovieTwo totalPages = {totalPages} setDisplay = {setDisplay} setMovieObj = {setMovieObj} query = {query} genreDisplay = {genreDisplay} adultMovie = {adultMovie} votes = {votes} rating = {rating} releaseDate = {releaseDate} maxReleaseDate = {maxReleaseDate}/>}
         {display && <div style={{height: '594px', width: '706px', zIndex: '10', color: 'black', position: 'absolute', top: '10%', left: '35%', right: '25%',bottom : '10%', borderRadius: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <MovieWindow movieObj = {movieObj} setDisplay = {setDisplay}/>
           </div>}
