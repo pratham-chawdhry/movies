@@ -1,6 +1,5 @@
 import React from 'react'
 import genres from './Movie'
-import { useState } from 'react'
 
 export default function GenreMenu({genreList, setGenreList, handleGenres}) {
 

@@ -3,9 +3,7 @@ import { useState } from 'react'
 import './Movie.css'
 import MovieTwo from '../MovieInfo/MovieTwo'
 import Menu from '../MovieInfo/Menu'
-import pinkSunset from '../../Images/GenreIcons/pink-beach.jpg'
 import MovieWindow from './MovieWindow'
-import {useParams} from 'react-router-dom'
 
 export default function MovieOne({query, genreDisplay, setGenreDisplay, adultMovie, setAdultMovie, votes, setVotes, rating, setRating, releaseDate, setReleaseDate, maxReleaseDate}) {
   const [loading, setLoading] = useState(true)

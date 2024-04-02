@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Home.css'
-import background from '../../Images/background.jpg'
 
 export default function Home() {
   return (
-    <div className='home' style={{backgroundImage: `url(${background})`, height: '100vh'}}>
+    <div className='home' style={{height: '100vh'}}>
       <div className = 'login'>
         <div className='details'>
             <label className='label-design'>Username</label>
