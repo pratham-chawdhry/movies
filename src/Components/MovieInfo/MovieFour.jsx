@@ -43,7 +43,7 @@ export default function MovieFour({genreId, genre, movieArray, setDisplay, setMo
       }
     }, [loading])
 
-    //console.log(genreArray.length, genre, numOfLarge, sizeOfSmall)
+    console.log(genreArray.length, genre, numOfLarge, sizeOfSmall)
   return (
     <div>
       {finish && ((genreArray.length) ? <h1 className = 'genre-title' style = {{color : 'white'}}>{genre}</h1> : <div></div>)}
