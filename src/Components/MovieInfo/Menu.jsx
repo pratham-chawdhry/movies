@@ -33,7 +33,7 @@ export default function Menu({query,genreDisplay, setGenreDisplay}) {
       const substringsTwo = finishReleaseDate.split("-")
       const str = genreList.join(',')
       console.log(str)
-      window.location.href = `/movies/search?query=${query}&adult=${adultMovie}&votes=${vote}&rating=${rating}&release_date=${substrings[0]}-${substrings[1]}-${substrings[2]}&max_release_date=${substringsTwo[0]}-${substringsTwo[1]}-${substringsTwo[2]}&genre=${str}`
+      window.location.href = `/search?query=${query}&adult=${adultMovie}&votes=${vote}&rating=${rating}&release_date=${substrings[0]}-${substrings[1]}-${substrings[2]}&max_release_date=${substringsTwo[0]}-${substringsTwo[1]}-${substringsTwo[2]}&genre=${str}`
     }
   }
 
@@ -61,21 +61,21 @@ export default function Menu({query,genreDisplay, setGenreDisplay}) {
         <span style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '30px', color: 'white'}}>Movie Filters:</span>
       <label style={{position: 'relative', bottom: '15px', height: '23px', borderRadius: '3px', fontSize: '15px', fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontWeight: '300', backgroundImage: 'linear-gradient(45deg, #ff4d4d, #ff1a1a)', padding: '1px 7px', paddingBottom: '4px', textDecoration: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', flexDirection: 'row', top : '0px', width: '170px', marginTop: '5px'}}>Genre</label>
       <GenreMenu genreList={genreList} setGenreList={setGenreList} handleGenres={handleGenres}/>
-      <div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'white', marginBottom: '5px'}}>Check the genre you want to search</div>
+      {/* <div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'white', marginBottom: '5px'}}>Check the genre you want to search</div> */}
         <div style={{display: 'flex', justifyContent: 'left', flexDirection: 'row', alignItems: 'left', gap: '5px'}}>
           <label style={{position: 'relative', bottom: '15px', height: '23px', borderRadius: '3px', fontSize: '15px', fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontWeight: '300', backgroundImage: 'linear-gradient(45deg, #ff4d4d, #ff1a1a)', padding: '1px 7px', paddingBottom: '4px', textDecoration: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', flexDirection: 'row', top : '0px', width: '50px', marginTop: '5px'}}>Votes</label>
           <div style={{backgroundColor: 'white', width: '114px', height: '27px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '5px', borderRadius: '2px'}}>
             <input onChange={(e) => {setVote(e.target.value)}} min="1" placeholder="Enter min votes" className="slider" id="myRange" style={{width: '100px', height: '23px', borderRadius : '2px', border: 'none',margin: '2px', outline: 'none'}}/>
           </div>
         </div>
-        { vote.trim === '' || (vote >= 0 && vote % 1 === 0) ? (<div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'white'}}>Enter a number greater than 0 </div>): (<div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'rgb(255,0,0)'}}>*Input is not a positive integer</div>)}
+        {/* { vote.trim === '' || (vote >= 0 && vote % 1 === 0) ? (<div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'white'}}>Enter a number greater than 0 </div>): (<div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'rgb(255,0,0)'}}>*Input is not a positive integer</div>)} */}
         <div style={{display: 'flex', justifyContent: 'left', flexDirection: 'row', alignItems: 'left', gap: '5px'}}>
           <label style={{position: 'relative', bottom: '15px', height: '23px', borderRadius: '3px', fontSize: '15px', fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontWeight: '300', backgroundImage: 'linear-gradient(45deg, #ff4d4d, #ff1a1a)', padding: '1px 7px', paddingBottom: '4px', textDecoration: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', flexDirection: 'row', top : '0px', width: '50px', marginTop: '5px'}}>Rating</label>
           <div style={{backgroundColor: 'white', width: '114px', height: '27px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '5px', borderRadius: '2px'}}>
             <input onChange = {(e) => {setRating(e.target.value)}} min="1" max= "10" placeholder="Enter min rating" className="slider" id="myRange" style={{width: '114px', height: '23px', borderRadius : '2px', border: 'none',margin: '2px', outline: 'none'}}/>
           </div>
         </div>
-        { rating.trim === "" || (rating >= 0 && rating <= 10) ? (<div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'white'}}>Enter a number between 0-10 </div>): (<div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'rgb(255,0,0)'}}>*Number is not between 0-10</div>)}
+        {/* { rating.trim === "" || (rating >= 0 && rating <= 10) ? (<div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'white'}}>Enter a number between 0-10 </div>): (<div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'rgb(255,0,0)'}}>*Number is not between 0-10</div>)} */}
         <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'row', alignItems: 'center', gap : '5px'}}>
           <label style={{position: 'relative', bottom: '15px', borderRadius: '3px', fontSize: '15px', fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontWeight: '300', backgroundImage: 'linear-gradient(45deg, #ff4d4d, #ff1a1a)', padding: '1px 7px', paddingBottom: '4px', textDecoration: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', flexDirection: 'row', top : '0px', width: '100px', marginTop: '5px', width : '50px', height : '80px'}}>Release Date</label>
           <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
@@ -92,12 +92,12 @@ export default function Menu({query,genreDisplay, setGenreDisplay}) {
           </div>
         </div>
       </div>
-      <div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'white'}}>Enter the range of dates </div>
+      {/* <div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'white'}}>Enter the range of dates </div> */}
       <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'row', alignItems: 'center', gap : '5px'}}>
         <label style={{position: 'relative', bottom: '15px', borderRadius: '3px', fontSize: '15px', fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontWeight: '300', backgroundImage: 'linear-gradient(45deg, #ff4d4d, #ff1a1a)', padding: '1px 7px', paddingBottom: '4px', textDecoration: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', flexDirection: 'row', top : '0px', width: '100px', marginTop: '5px'}}>Adult Movies</label>
         <input onClick={() => setAdultMovie(!adultMovie)} type = "checkbox" style = {{width: '26px', height: '26px', marginTop : '8px'}}></input>
       </div>
-      {!adultMovie ? (<div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'white'}}>Toggle to include adult movies </div>) : (<div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'white'}}>Toggle to exclude adult movies </div>)}
+      {/* {!adultMovie ? (<div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'white'}}>Toggle to include adult movies </div>) : (<div style={{fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontSize: '8px', color: 'white'}}>Toggle to exclude adult movies </div>)} */}
       <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'row', alignItems: 'center', gap : '5px'}}>
         <button onClick={myGenres} style={{position: 'relative', bottom: '15px', borderRadius: '1.5px', fontSize: '15px', fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Robot', fontWeight: '300', backgroundImage: 'linear-gradient(45deg, #ff4d4d, #ff1a1a)', padding: '1px 7px', paddingBottom: '4px', textDecoration: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', flexDirection: 'row', top : '0px', width: '100px', marginTop: '5px', border: 'none'}}>Submit</button>
       </div>
