@@ -1,0 +1,32 @@
+.movie-info:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.scroll::-webkit-scrollbar {
+    width : 5px;
+    display: none;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background-color: white
+}
+
+.background {
+    background-image: linear-gradient(160deg,#222831, #010102);
+    /* min-height: 100vh; /* Ensure background covers entire viewport height */
+    /* width: 100vw; */
+    /* overflow: hidden; Ensure the background doesn't overflow */
+    /* */ /* overflow-y: auto;
+    height: 100vh; */ 
+}
+
+.background::-webkit-scrollbar {
+    width : 0;
+    display: none;
+}
+
+.container::-webkit-scrollbar {
+    width : 0;
+    display: none;
+}
