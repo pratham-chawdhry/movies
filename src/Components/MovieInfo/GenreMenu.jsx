@@ -1,7 +1,7 @@
 import React from 'react'
 import genres from './Movie'
 
-export default function GenreMenu({genreList, setGenreList, handleGenres}) {
+export default function GenreMenu({genreDisplay, setGenreDisplay, handleGenres}) {
 
   return (
     <div className='scroll' style={{ height: '222px', overflowY: 'auto', marginTop: '5px', border: '1px solid rgba(255,255,255,0.4)', borderRadius: '5px'}}>

@@ -25,9 +25,20 @@ export default function MovieFive({array, setDisplay, setMovieObj}) {
     }
 
     const scrollHandlerNew = () => {
-        const newScrollPosition = scroll - 6*187;
+        let newScrollPosition = 0
+        if (scroll === array.length * 187 - 6*187) {
+            let newValue = array.length % 6;
+            if (newValue === 0) {
+                newValue = 6
+            }
+            newScrollPosition = scroll - newValue * 187;
+            containerRef.current.scrollLeft = newScrollPosition;
+        }
+        else {
+            newScrollPosition = scroll - 6*187;
+            containerRef.current.scrollLeft = newScrollPosition;
+        }
         setScroll(newScrollPosition);
-        containerRef.current.scrollLeft = newScrollPosition;
     }
 
     let value = array.length * 187- 6*187

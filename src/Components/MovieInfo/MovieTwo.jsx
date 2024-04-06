@@ -38,9 +38,9 @@ export default function MovieTwo({ totalPages, setDisplay, setMovieObj, query, s
                 data.forEach((item) => {
                     const { results } = item;
                     results && results.forEach((movie) => {
-                        const {poster_path, backdrop_path, popularity, overview, original_title, title, genre_ids, vote_count, vote_average, release_date} = movie;
+                        const {poster_path, backdrop_path, popularity, overview, original_title, title, genre_ids, vote_count, vote_average, release_date, adult} = movie;
                         const dateToCompare = new Date(releaseDate);
-                        if (poster_path && backdrop_path && popularity > 0 && overview && vote_average > rating && vote_count > votes && dateToCompare <= new Date(release_date) && new Date(maxReleaseDate) >= new Date(release_date) ) {
+                        if (poster_path && backdrop_path && popularity > 0 && overview && vote_average > rating && vote_count > votes && dateToCompare <= new Date(release_date) && new Date(maxReleaseDate) >= new Date(release_date)) {
                             array.push(movie);
                         }
                     })
@@ -49,7 +49,7 @@ export default function MovieTwo({ totalPages, setDisplay, setMovieObj, query, s
             });
             setFinish(true);
         }
-    }, [loading, data, query, votes, rating]);
+    }, [loading, data, query, votes, rating, releaseDate, maxReleaseDate, adultMovie]);
 
     return (
         <div className = "container">

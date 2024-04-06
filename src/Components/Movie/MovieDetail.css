@@ -12,16 +12,11 @@
     background-color: white
 }
 
-.background {
+.backgroundNew {
     background-image: linear-gradient(160deg,#222831, #010102);
-    /* min-height: 100vh; /* Ensure background covers entire viewport height */
-    /* width: 100vw; */
-    /* overflow: hidden; Ensure the background doesn't overflow */
-    /* */ /* overflow-y: auto;
-    height: 100vh; */ 
 }
 
-.background::-webkit-scrollbar {
+.backgroundNew::-webkit-scrollbar {
     width : 0;
     display: none;
 }
@@ -29,4 +24,20 @@
 .container::-webkit-scrollbar {
     width : 0;
     display: none;
+}
+
+.movieDiv::-webkit-scrollbar{
+    width : 0;
+    display: none;
+}
+
+.rowNew {
+    display: grid;
+    grid-auto-columns: 300vw;
+    overflow: hidden;
+    column-gap: 8px;
+    row-gap: 5px;
+    scroll-behavior: smooth;
+    padding-left: 118px;
+    margin-bottom: 5px;
 }

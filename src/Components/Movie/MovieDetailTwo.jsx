@@ -6,6 +6,7 @@ export default function MovieDetailTwo({id}) {
     const [loading, setLoading] = useState(true);
     const [movieArray, setMovieArray] = useState([]);
     const [finish, setFinish] = useState(false);
+    const [results, setResults] = useState(0);
     let totalPages = 3;
 
     useEffect(() => {
@@ -37,9 +38,10 @@ export default function MovieDetailTwo({id}) {
             setMovieArray(() => {
                 const array = [];
                 data.forEach((item) => {
-                    const { results } = item;
+                    const { results, total_results} = item;
                     results && results.forEach((movie) => {
-                        const {poster_path, backdrop_path, popularity, overview, original_title, title, genre_ids, vote_count, vote_average, release_date} = movie;
+                        const {poster_path, backdrop_path, popularity, overview,original_title, title, genre_ids, vote_count, vote_average, release_date} = movie;
+                        setResults(total_results);
                         if (poster_path && backdrop_path && popularity > 0 && overview) {
                             array.push(movie);
                         }
@@ -52,10 +54,10 @@ export default function MovieDetailTwo({id}) {
     },[loading, data])
 
   return (
-    <div className='background' style = {{position: 'absolute', zIndex: '0',display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', flexDirection: 'row', height: '100vh'}}>
-        <div className = "container" style={{height: '100vh'}}>
+    !loading && results > 0 && (<div className='backgroundNew' style = {{position: 'absolute', top : '742px',display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', flexDirection: 'row', left: '0px'}}>
+        <div className = "container" style={{height: '420px', top : '20px'}}>
             {finish && <MovieDetailThree movieArray = {movieArray}/>}
         </div>
-    </div>
+    </div>)
   )
 }

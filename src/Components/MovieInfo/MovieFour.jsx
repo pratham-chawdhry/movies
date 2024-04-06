@@ -43,7 +43,7 @@ export default function MovieFour({genreId, genre, movieArray, setDisplay, setMo
       }
     }, [loading])
 
-    console.log(genre, genreArray.length)
+    // console.log(genre, genreArray.length)
   return (
     <div>
       {finish && ((genreArray.length) ? <h1 className = 'genre-title' style = {{color : 'white'}}>{genre}</h1> : <div></div>)}
@@ -53,7 +53,7 @@ export default function MovieFour({genreId, genre, movieArray, setDisplay, setMo
           start = end
           end = start + num
           const array = genreArray.slice(start, end)
-          return (<MovieFive key = {index} array = {array} setDisplay = {setDisplay} setMovieObj = {setMovieObj}/>)
+          return (array.length !== 0 && <MovieFive key = {index} array = {array} setDisplay = {setDisplay} setMovieObj = {setMovieObj}/>)
         }) 
       }
     </div>

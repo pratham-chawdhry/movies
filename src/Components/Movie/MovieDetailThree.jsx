@@ -16,7 +16,6 @@ export default function MovieDetailThree({movieArray}) {
       setNewLoading(false)
     }, [genres])
 
-    console.log(movieArray)
   
     return (
       <div className='background'>

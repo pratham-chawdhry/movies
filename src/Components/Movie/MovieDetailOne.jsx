@@ -21,14 +21,14 @@ export default function MovieDetailOne() {
   const [clicked, setClicked] = useState(false)
   return (
     <div>
-      <div style={{position: 'relative',backgroundColor: '#000000', height: '745px', width : '1536px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <div className='movieDiv' style={{position: 'relative',backgroundColor: '#000000', height: '745px', width : '1536px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflowY: 'scroll'}}>
       {loading ? <h1>Loading...</h1> : (
-        <div style={{position: 'absolute', height: '745px', width: '1536vw', top: '0px', left: '0px'}}>
+        <div style={{position: 'absolute',height: '745px', width: '1536vw', left: '0px'}}>
           <div style={{position: 'absolute', zIndex: '0',display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <img style = {{height: '742px'}} src ={`https://image.tmdb.org/t/p/original${data.backdrop_path}?api_key=294c3bed71b4dc93880885f944b67ed6`}/>
             <div style={{width:'228px'}}></div>
           </div>
-          <div style={{position: 'absolute', zIndex: '1',display: 'flex', justifyContent: 'center', alignItems: 'center', width: '1536px', height: '745px', backgroundImage: 'linear-gradient(70deg, rgba(10,10,10,0) 0%,rgba(10,10,10,1) 75%)'} }>
+          <div style={{position: 'absolute', zIndex: '1',display: 'flex', justifyContent: 'center', alignItems: 'center', width: '1536px', height: '745px', backgroundImage: 'linear-gradient(70deg, rgba(10,10,10,0) 30%,rgba(10,10,10,1) 75%)'} }>
           <div style={{color: 'white', backgroundColor: 'rgba(0,0,0,0.3)', fontFamily: 'Garamond', padding: '10px', borderRadius: '5px', fontSize: '24px', fontWeight: 'bold', position: 'absolute', left: '50px', bottom: '50px'}}>
             <div style={{fontFamily: 'Garamond', padding: '0px', margin: '0px', fontSize: '40px', lineHeight: '1.2'}}>
               {data.original_title} ({data.release_date.slice(0, 4)})
@@ -84,8 +84,10 @@ export default function MovieDetailOne() {
           </div>
         </div>
       )}
+      {
+        !loading && <MovieDetailTwo id={id}/>
+      }
       </div>
-      <MovieDetailTwo id={id} />
     </div>
   )
 }
