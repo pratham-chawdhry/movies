@@ -1,6 +1,6 @@
 {
-  "homepage": "http://pratham-chawdhry.github.io/movies/",
-  "name": "movies",
+  "homepage": "http://pratham-chawdhry.github.io/movies",
+  "name": "newmovies",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
