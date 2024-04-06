@@ -1,0 +1,43 @@
+.movie-info:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.scroll::-webkit-scrollbar {
+    width : 5px;
+    display: none;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background-color: white
+}
+
+.backgroundNew {
+    background-image: linear-gradient(160deg,#222831, #010102);
+}
+
+.backgroundNew::-webkit-scrollbar {
+    width : 0;
+    display: none;
+}
+
+.container::-webkit-scrollbar {
+    width : 0;
+    display: none;
+}
+
+.movieDiv::-webkit-scrollbar{
+    width : 0;
+    display: none;
+}
+
+.rowNew {
+    display: grid;
+    grid-auto-columns: 300vw;
+    overflow: hidden;
+    column-gap: 8px;
+    row-gap: 5px;
+    scroll-behavior: smooth;
+    padding-left: 118px;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,15 @@
+input::placeholder{
+    font-size: 11px;
+}
+
+.error{
+    font-weight: normal !important;
+}
+
+input[type = "checkbox"]:checked{
+    accent-color: red;
+}
+
+.scroll::-webkit-scrollbar {
+    width : 5px;
+}
