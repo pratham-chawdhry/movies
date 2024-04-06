@@ -6,7 +6,7 @@ import MovieDetail from './Components/Movie/MovieDetailOne';
 
 function App() {
   return (
-    <BrowserRouter basename = "/">
+    <BrowserRouter basename = "/movies">
       <Routes>
         <Route exact path = "/" element = {<HomePage />}/>
         <Route path = "/search" element = {<MovieCentral/>}/>
