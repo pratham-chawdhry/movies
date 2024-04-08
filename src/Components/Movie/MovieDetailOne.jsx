@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useMemo } from 'react'
 import './MovieDetail.css'
 import MovieDetailTwo from './MovieDetailTwo'
+import MovieCastDetailsOne from './MovieCast/MovieCastDetailsOne'
 
 export default function MovieDetailOne() {
   const [data, setData] = useState()
@@ -20,8 +21,8 @@ export default function MovieDetailOne() {
 
   const [clicked, setClicked] = useState(false)
   return (
-    <div>
-      <div className='movieDiv' style={{position: 'relative',backgroundColor: '#000000', height: '745px', width : '1536px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflowY: 'scroll'}}>
+    !loading && (<div style={{backgroundColor: '#ffffff'}}>
+      <div className='movieDiv' style={{position: 'relative',backgroundColor: '#ffffff', height: '745px', width : '1536px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflowY: 'scroll'}}>
       {loading ? <h1>Loading...</h1> : (
         <div style={{position: 'absolute',height: '745px', width: '1536vw', left: '0px'}}>
           <div style={{position: 'absolute', zIndex: '0',display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -87,7 +88,10 @@ export default function MovieDetailOne() {
       {
         !loading && <MovieDetailTwo id={id}/>
       }
+      {
+        !loading && <MovieCastDetailsOne id={id}/>
+      }
       </div>
-    </div>
+    </div>)
   )
 }
