@@ -7,6 +7,7 @@ export default function MovieCastDetailsOne({id}) {
     const [scroll, setScroll] = useState(0);
     const [value, setValue] = useState(0);
     const containerRef = React.useRef(null);
+
     let size = 143;
 
     useEffect(() => {
@@ -21,13 +22,6 @@ export default function MovieCastDetailsOne({id}) {
           console.error('Error fetching data:', error);
         })
     })
-
-    useEffect(() => {
-      if (!loading && containerRef.current !== null) {
-        containerRef.current.scrollLeft = 0;
-        setScroll(containerRef.current.scrollLeft);
-      }
-    },[loading, containerRef])
 
     const scrollHandler = () => {
       let newScrollPosition = 0;
