@@ -88,9 +88,9 @@ export default function MovieDetailOne() {
       {
         !loading && <MovieDetailTwo id={id}/>
       }
-      {/* {
+      {
         !loading && <MovieCastDetailsOne id={id}/>
-      } */}
+      }
       </div>
     </div>)
   )
