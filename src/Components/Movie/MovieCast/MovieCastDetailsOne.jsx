@@ -7,7 +7,6 @@ export default function MovieCastDetailsOne({id}) {
     const [scroll, setScroll] = useState(0);
     const [value, setValue] = useState(0);
     const containerRef = React.useRef(null);
-    containerRef.current.left = 0
     let size = 143;
 
     useEffect(() => {
@@ -24,11 +23,11 @@ export default function MovieCastDetailsOne({id}) {
     })
 
     useEffect(() => {
-      if (!loading){      
+      if (!loading && containerRef.current !== null) {
         containerRef.current.scrollLeft = 0;
         setScroll(containerRef.current.scrollLeft);
       }
-    },[loading])
+    },[loading, containerRef])
 
     const scrollHandler = () => {
       let newScrollPosition = 0;
@@ -38,22 +37,17 @@ export default function MovieCastDetailsOne({id}) {
               newValue = 4
           }
           newScrollPosition = scroll + newValue * size
-          console.log("Lmao",newScrollPosition)
       }
       else{
           newScrollPosition = scroll + 4*size;
-          console.log(newScrollPosition)
       }
       containerRef.current.scrollLeft = newScrollPosition;
       setScroll(newScrollPosition);
-      console.log(scroll, value)
   }
 
   const scrollHandlerNew = () => {
     let newScrollPosition = 0
-    console.log(scroll, value)
     if (scroll === value) {
-        console.log("Lmfao",scroll, value)
         let newValue = (value/size) % 4;
         if (newValue === 0) {
             newValue = 4
