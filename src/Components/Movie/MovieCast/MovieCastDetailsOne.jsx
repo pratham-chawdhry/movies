@@ -16,12 +16,14 @@ export default function MovieCastDetailsOne({id}) {
         .then(data => {
           setData(data);
           setLoading(false);
-          setValue((data.cast.length - 4) * size);
+          if (data && data.cast) {
+            setValue((data.cast.length - 4) * size);
+          }
         })
         .catch(error => {
           console.error('Error fetching data:', error);
         })
-    })
+    }, [id, size])
 
     const scrollHandler = () => {
       let newScrollPosition = 0;
@@ -70,8 +72,8 @@ export default function MovieCastDetailsOne({id}) {
                   <h1>Loading...</h1>
               ):
               (
-                data.cast.map((cast, index) => cast.profile_path ? (
-                    <div style = {{fontSize: '20px', fontFamily: 'Garamond, serif', fontWeight: '400', display: 'flex', justifyContent: 'center', alignItems: 'center', flex: 'display', height: '242px', flexDirection: 'column', alignItems: 'center'}} key={index}>
+                data?.cast?.map((cast, index) => cast.profile_path ? (
+                    <div style = {{fontSize: '20px', fontFamily: 'Garamond, serif', fontWeight: '400', display: 'flex', justifyContent: 'center', height: '242px', flexDirection: 'column', alignItems: 'center'}} key={index}>
                         <div>
                           <img style={{height: '200px', marginTop: '0px', borderRadius: '5px'}} src = {`https://image.tmdb.org/t/p/original${cast.profile_path}?api_key=294c3bed71b4dc93880885f944b67ed6`} alt = {cast.name}/>
                         </div>
@@ -80,8 +82,8 @@ export default function MovieCastDetailsOne({id}) {
                         <div style={{fontFamily: 'sans-serif', fontSize: '10px', color: 'grey'}}>{cast.known_for_department}</div>
                     </div>
                 ) : (
-                  <div style = {{color: 'white', fontSize: '20px', fontFamily: 'Garamond, serif', fontWeight: '400', display: 'flex', justifyContent: 'center', alignItems: 'center', flex: 'display', height: '242px', flexDirection: 'column', alignItems: 'center'}} key={index}>
-                    <div style={{height: '220px', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '3', borderRadius: '5px', backgroundColor: 'rgb(240,240,240)'}}> <i style={{fontSize: '9.7rem', backgroundColor: 'white', color: 'grey', backgroundColor: 'rgb(240,240,240)'}} className="fa-solid fa-user"></i> </div>
+                  <div style = {{color: 'white', fontSize: '20px', fontFamily: 'Garamond, serif', fontWeight: '400', display: 'flex', justifyContent: 'center', height: '242px', flexDirection: 'column', alignItems: 'center'}} key={index}>
+                    <div style={{height: '220px', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '3', borderRadius: '5px', backgroundColor: 'rgb(240,240,240)'}}> <i style={{fontSize: '9.7rem', color: 'grey', backgroundColor: 'rgb(240,240,240)'}} className="fa-solid fa-user"></i> </div>
                     <div style={{fontFamily: 'sans-serif', fontSize: '12px', color: 'black'}}>{cast.name}</div>
                     <div style={{fontFamily: 'sans-serif', fontSize: '10px', color: 'grey'}}>{cast.character.length > 20 ? cast.character.slice(0, 20) + '...' : cast.character}</div>
                     <div style={{fontFamily: 'sans-serif', fontSize: '10px', color: 'grey'}}>{cast.known_for_department}</div>

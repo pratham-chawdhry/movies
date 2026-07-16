@@ -1,10 +1,30 @@
-import React from 'react'
-import {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 
 export default function MovieSix({movie, setDisplay, setMovieObj}) {
     const [movieOverview, setMovieOverview] = useState(movie.overview.slice(0, 100) + (movie.overview.length > 100 ? '...' : ''));
-    const [clicked , setClicked] = useState(false)
+    const [clicked, setClicked] = useState(() => {
+        const favorites = JSON.parse(localStorage.getItem('starred_movies') || '[]');
+        return favorites.includes(Number(movie.id));
+    });
+
+    useEffect(() => {
+        const favorites = JSON.parse(localStorage.getItem('starred_movies') || '[]');
+        setClicked(favorites.includes(Number(movie.id)));
+    }, [movie.id]);
+
+    const toggleFavorite = () => {
+        const favorites = JSON.parse(localStorage.getItem('starred_movies') || '[]');
+        let newFavorites;
+        const numericId = Number(movie.id);
+        if (clicked) {
+            newFavorites = favorites.filter(favId => Number(favId) !== numericId);
+        } else {
+            newFavorites = [...favorites, numericId];
+        }
+        localStorage.setItem('starred_movies', JSON.stringify(newFavorites));
+        setClicked(!clicked);
+    };
 
     return (
       <div className='movieDiv'>
@@ -14,10 +34,10 @@ export default function MovieSix({movie, setDisplay, setMovieObj}) {
           <i style={{position: 'absolute', zIndex: '2', color: 'rgba(128,128,128,0.6)', opacity: '1', fontSize: '4.1rem', top: '3px', left: '0'}} className="fa-solid fa-bookmark">
             <i style={{position: 'absolute', zIndex: '2', color: 'rgba(0,0,0,0.6)', fontSize: '3.6rem', top: '0', left: '3px'}} className="fa-solid fa-bookmark">
               {clicked ? (
-                <i onClick={() => {setClicked(false)}} style={{position: 'absolute', zIndex: '2', color: 'rgba(255,255,0,0.6)', fontSize: '1.2rem', top : '18px', left : '11px'}} className="fa-solid fa-star">
+                <i onClick={toggleFavorite} style={{position: 'absolute', zIndex: '2', color: 'rgba(255,255,0,0.6)', fontSize: '1.2rem', top : '18px', left : '11px'}} className="fa-solid fa-star">
                 </i>
               ) : (
-                <i onClick={() => {setClicked(true)}} style={{position: 'absolute', zIndex: '2', color: 'rgba(255,255,255,0.6)', fontSize: '1.2rem', top : '18px', left : '11px'}} className="fa-regular fa-star">
+                <i onClick={toggleFavorite} style={{position: 'absolute', zIndex: '2', color: 'rgba(255,255,255,0.6)', fontSize: '1.2rem', top : '18px', left : '11px'}} className="fa-regular fa-star">
                 </i>
               )}
             </i>

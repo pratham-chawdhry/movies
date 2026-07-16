@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MovieThree from "./MovieThree"
 import './Movie.css'
 
-export default function MovieTwo({ totalPages, setDisplay, setMovieObj, query, setQuery, genreDisplay, adultMovie, votes, rating, releaseDate, maxReleaseDate }) {
+export default function MovieTwo({ totalPages, setDisplay, setMovieObj, query, setQuery, genreDisplay, votes, rating, releaseDate, maxReleaseDate, favoritesOnly }) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [movieArray, setMovieArray] = useState([]);
@@ -15,7 +15,7 @@ export default function MovieTwo({ totalPages, setDisplay, setMovieObj, query, s
                     Array.from({ length: totalPages }, async (_, i) => {
                         const delay = 1000; // Exponential backoff
                         await new Promise(resolve => setTimeout(resolve, delay));
-                        return fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=${adultMovie}&language=en-US&page=${i + 1}&region=India&api_key=294c3bed71b4dc93880885f944b67ed6`);
+                        return fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=${i + 1}&region=India&api_key=294c3bed71b4dc93880885f944b67ed6`);
                         
                     })
                 );
@@ -29,7 +29,7 @@ export default function MovieTwo({ totalPages, setDisplay, setMovieObj, query, s
         };
         
         fetchData();        
-    }, [totalPages, query, adultMovie]);
+    }, [totalPages, query]);
 
     useEffect(() => {
         if (!loading && data.length > 0 && data) {
@@ -38,18 +38,22 @@ export default function MovieTwo({ totalPages, setDisplay, setMovieObj, query, s
                 data.forEach((item) => {
                     const { results } = item;
                     results && results.forEach((movie) => {
-                        const {poster_path, backdrop_path, popularity, overview, original_title, title, genre_ids, vote_count, vote_average, release_date, adult} = movie;
+                        const {poster_path, backdrop_path, popularity, overview, vote_count, vote_average, release_date} = movie;
                         const dateToCompare = new Date(releaseDate);
                         if (poster_path && backdrop_path && popularity > 0 && overview && vote_average > rating && vote_count > votes && dateToCompare <= new Date(release_date) && new Date(maxReleaseDate) >= new Date(release_date)) {
                             array.push(movie);
                         }
                     })
                 });
+                if (favoritesOnly) {
+                    const starred = JSON.parse(localStorage.getItem('starred_movies') || '[]').map(Number);
+                    return array.filter(m => starred.includes(Number(m.id)));
+                }
                 return array;
             });
             setFinish(true);
         }
-    }, [loading, data, query, votes, rating, releaseDate, maxReleaseDate, adultMovie]);
+    }, [loading, data, query, votes, rating, releaseDate, maxReleaseDate, favoritesOnly]);
 
     return (
         <div className = "container">
