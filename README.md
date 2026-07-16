@@ -29,7 +29,7 @@ This project was refined from a base legacy setup with several architectural enh
 
 ---
 
-## ⚙️ Running Locally
+## Running Locally
 
 ### 1. Prerequisites
 Make sure you have [Node.js](https://nodejs.org/) installed.
